@@ -1,8 +1,11 @@
 package com.br.usemobile.project_poc
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.br.usemobile.poc_library.BottomSheetManager
+import kotlinx.coroutines.delay
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,11 +28,20 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
 //        }
 
-        BottomSheetManager().startActivityBottomSheet(
+        BottomSheetManager.getManager().startActivityBottomSheet(
             this,
             title = "",
             buttonText = "OPEN "
         )
+
     }
+
+    override fun onResume() {
+        super.onResume()
+        Handler(Looper.getMainLooper()).postDelayed({
+            BottomSheetManager.getManager().openBottomSheet()
+        }, 5000L)
+    }
+
 
 }

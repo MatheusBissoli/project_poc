@@ -5,7 +5,21 @@ import android.content.Intent
 
 class BottomSheetManager {
 
-     fun startActivityBottomSheet(
+    private lateinit var activity: BottomSheetActivity
+
+
+    companion object {
+        private var managerInstance: BottomSheetManager? = null
+
+        fun getManager(): BottomSheetManager {
+            if (managerInstance == null) {
+                managerInstance = BottomSheetManager()
+            }
+            return managerInstance as BottomSheetManager
+        }
+    }
+
+    fun startActivityBottomSheet(
         context: Context,
         title: String = "ChatTest",
         color: Int = R.color.black,
@@ -20,11 +34,20 @@ class BottomSheetManager {
         i.putExtra("Custom", customScreen)
         context.startActivity(i)
 
+
     }
 
     fun startActivityBottomSheet(context: Context) {
         val i = Intent(context, BottomSheetActivity::class.java)
         i.putExtra("Custom", CustomScreen())
         context.startActivity(i)
+    }
+
+    fun openBottomSheet() {
+        activity.exemploSimples {}
+    }
+
+    fun setActivity(activity: BottomSheetActivity) {
+        this.activity = activity
     }
 }

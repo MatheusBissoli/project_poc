@@ -30,6 +30,7 @@ class BottomSheetActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = BottomSheetActivityBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        setActivityManager()
         getIntentScreen()
         setUpLayout()
 //        exemploSimples()
@@ -44,7 +45,10 @@ class BottomSheetActivity : AppCompatActivity() {
 
     private fun setUpLayout(){
         binding?.buttonTeste?.text = customLayout.buttonText
+    }
 
+    private fun setActivityManager(){
+        BottomSheetManager.getManager().setActivity(activity = this)
     }
 
 
@@ -69,7 +73,7 @@ class BottomSheetActivity : AppCompatActivity() {
         }
     }
 
-    fun exemploSimples(context: Context, listenerInterface: ListenerInterface) {
+    fun exemploSimples(context: Context , listenerInterface: ListenerInterface) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context);
         builder.setTitle("Titulo")
         builder.setMessage("Qualifique este software")
@@ -97,7 +101,7 @@ class BottomSheetActivity : AppCompatActivity() {
         alerta.show()
     }
 
-    fun exemploSimples(context: Context, callback: (String) -> Unit) {
+    fun exemploSimples(context: Context = this, callback: (String) -> Unit) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context);
         builder.setTitle("Titulo")
         builder.setMessage("Qualifique este software")
