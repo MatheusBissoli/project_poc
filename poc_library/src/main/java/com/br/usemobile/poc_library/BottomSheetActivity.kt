@@ -57,26 +57,57 @@ class BottomSheetActivity : AppCompatActivity() {
         }
     }
 
-    fun exemploSimples(context: Context) {
+    fun exemploSimples(context: Context, listenerInterface: ListenerInterface) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context);
         builder.setTitle("Titulo")
         builder.setMessage("Qualifique este software")
         builder.setPositiveButton("Positivo", object : DialogInterface.OnClickListener {
             override fun onClick(p0: DialogInterface?, p1: Int) {
-                Toast.makeText(
-                    context,
-                    "positivo",
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    context,
+//                    "positivo",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+                listenerInterface.onClick("positivo")
             }
         })
         builder.setNegativeButton("Negativo", object : DialogInterface.OnClickListener {
             override fun onClick(p0: DialogInterface?, p1: Int) {
-                Toast.makeText(
-                    context,
-                    "negativo",
-                    Toast.LENGTH_SHORT
-                ).show()
+//                Toast.makeText(
+//                    context,
+//                    "negativo",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+                listenerInterface.onClick("negativo")
+            }
+        })
+        val alerta = builder.create()
+        alerta.show()
+    }
+
+    fun exemploSimples(context: Context, callback: (String) -> Unit) {
+        val builder: AlertDialog.Builder = AlertDialog.Builder(context);
+        builder.setTitle("Titulo")
+        builder.setMessage("Qualifique este software")
+
+        builder.setPositiveButton("Positivo", object : DialogInterface.OnClickListener {
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+//                Toast.makeText(
+//                    context,
+//                    "positivo",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+                callback.invoke("positivo")
+            }
+        })
+        builder.setNegativeButton("Negativo", object : DialogInterface.OnClickListener {
+            override fun onClick(p0: DialogInterface?, p1: Int) {
+//                Toast.makeText(
+//                    context,
+//                    "negativo",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+                callback.invoke("negativo")
             }
         })
         val alerta = builder.create()
