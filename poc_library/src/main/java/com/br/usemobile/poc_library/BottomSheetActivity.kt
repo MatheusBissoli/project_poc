@@ -14,13 +14,6 @@ import com.br.usemobile.poc_library.databinding.BottomSheetActivityBinding
 import com.br.usemobile.testepoc.MyBottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-class Invoke(private val context: Context) : AppCompatActivity() {
-
-    fun init() {
-        context.startActivity(Intent(context, BottomSheetActivity::class.java))
-    }
-}
-
 class BottomSheetActivity : AppCompatActivity() {
 
     var binding: BottomSheetActivityBinding? = null

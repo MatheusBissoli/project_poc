@@ -43,8 +43,10 @@ class BottomSheetManager {
         context.startActivity(i)
     }
 
-    fun openBottomSheet() {
-        activity.exemploSimples {}
+    fun openExemplo(callback: (String) -> Unit) {
+        activity.exemploSimples {
+            callback.invoke(it)
+        }
     }
 
     fun setActivity(activity: BottomSheetActivity) {

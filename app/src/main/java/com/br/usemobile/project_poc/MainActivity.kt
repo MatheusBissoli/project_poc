@@ -3,6 +3,7 @@ package com.br.usemobile.project_poc
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.br.usemobile.poc_library.BottomSheetManager
 import kotlinx.coroutines.delay
@@ -39,7 +40,9 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Handler(Looper.getMainLooper()).postDelayed({
-            BottomSheetManager.getManager().openBottomSheet()
+            BottomSheetManager.getManager().openExemplo() {
+                Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+            }
         }, 5000L)
     }
 
