@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:background="#E7E7E7"
     android:layout_height="match_parent"
-    tools:context="com.br.usemobile.testepoc.BottomSheetActivity">
+    tools:context="com.br.usemobile.poc_library.BottomSheetActivity">
 
     <include
         android:id="@+id/my_bottom_sheet"
         layout="@layout/bottom_sheet"
-        android:visibility="visible"/>
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/buttonBottomSheetModal"
@@ -21,6 +21,11 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
         android:text="Abrir bottom sheet" />
+
+    <Button
+        android:id="@+id/button_teste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

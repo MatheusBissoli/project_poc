@@ -1,11 +1,8 @@
 package com.br.usemobile.project_poc
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.BottomSheetActivity
-import com.br.usemobile.poc_library.Invoke
-import com.br.usemobile.poc_library.ListenerInterface
+import com.br.usemobile.poc_library.BottomSheetManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,9 +21,15 @@ class MainActivity : AppCompatActivity() {
 //
 //        })
 
-        BottomSheetActivity().exemploSimples(this) {
-            Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
-        }
+//        BottomSheetActivity().exemploSimples(this) {
+//            Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+//        }
+
+        BottomSheetManager().startActivityBottomSheet(
+            this,
+            title = "",
+            buttonText = "OPEN "
+        )
     }
 
 }

@@ -24,15 +24,27 @@ class Invoke(private val context: Context) : AppCompatActivity() {
 class BottomSheetActivity : AppCompatActivity() {
 
     var binding: BottomSheetActivityBinding? = null
+    lateinit var customLayout: CustomScreen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = BottomSheetActivityBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        getIntentScreen()
+        setUpLayout()
 //        exemploSimples()
 //        exemploCustomizado()
 //        bottomSheetDialog()
 //        openHideBottomSheet()
+    }
+
+    private fun getIntentScreen(){
+        customLayout = intent.getSerializableExtra("Custom") as CustomScreen
+    }
+
+    private fun setUpLayout(){
+        binding?.buttonTeste?.text = customLayout.buttonText
+
     }
 
 
