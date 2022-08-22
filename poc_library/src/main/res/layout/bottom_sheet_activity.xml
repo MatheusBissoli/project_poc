@@ -11,7 +11,7 @@
     <include
         android:id="@+id/my_bottom_sheet"
         layout="@layout/bottom_sheet"
-        android:visibility="gone"/>
+        android:visibility="visible"/>
 
     <Button
         android:id="@+id/buttonBottomSheetModal"

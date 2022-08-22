@@ -35,7 +35,7 @@ class BottomSheetActivity : AppCompatActivity() {
 //        exemploSimples()
 //        exemploCustomizado()
 //        bottomSheetDialog()
-//        openHideBottomSheet()
+        openHideBottomSheet()
     }
 
     private fun getIntentScreen(){
@@ -55,7 +55,7 @@ class BottomSheetActivity : AppCompatActivity() {
     }
 
     fun openHideBottomSheet() {
-        binding?.buttonBottomSheetModal?.apply {
+        binding?.buttonTeste?.apply {
             visibility = View.VISIBLE
             val myBottomSheet = binding?.myBottomSheet?.root
             setOnClickListener {
