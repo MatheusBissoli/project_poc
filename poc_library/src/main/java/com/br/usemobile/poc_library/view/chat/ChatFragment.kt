@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.br.usemobile.poc_library.common.ChatManager
 import com.br.usemobile.poc_library.databinding.FragmentChatBinding
 import com.br.usemobile.poc_library.view.adapter.ChatAdapter
 import com.br.usemobile.poc_library.view.model.ItemChat
@@ -29,6 +31,7 @@ class ChatFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpAdapter()
+        setUpLayout()
         setUpListeners()
     }
 
@@ -36,6 +39,22 @@ class ChatFragment : Fragment() {
         binding.recyclerViewConversation.apply {
             adapter = chatAdapter
             layoutManager = LinearLayoutManager(requireContext())
+        }
+    }
+
+    private fun setUpLayout() {
+        binding.apply {
+            constraintLayoutEditText.backgroundTintList =
+                ContextCompat.getColorStateList(
+                    requireContext(),
+                    ChatManager.getManager().colorPrimary
+                )
+            imageViewSend.setImageDrawable(
+                ContextCompat.getDrawable(
+                    requireContext(),
+                    ChatManager.getManager().iconSend
+                )
+            )
         }
     }
 
@@ -52,6 +71,7 @@ class ChatFragment : Fragment() {
             val message = createMessage(editTextMessage.text.toString())
             editTextMessage.text.clear()
             chatAdapter.add(message)
+            chatAdapter.add(generateMessageSender())
         }
     }
 
@@ -59,6 +79,13 @@ class ChatFragment : Fragment() {
         return ItemChat.User(
             message = message,
             time = "10:44"
+        )
+    }
+
+    private fun generateMessageSender(): ItemChat.Sender {
+        return ItemChat.Sender(
+            message = "aaa",
+            time = "11:00"
         )
     }
 

@@ -23,7 +23,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     parent,
                     false
                 )
-                ChatViewHolder.ItemChatUserViewHolder(itemBinding)
+                ChatViewHolder.ItemChatUserViewHolder(itemBinding, parent.context)
             }
             TYPE_SENDER -> {
                 val itemBinding = ItemChatSenderBinding.inflate(
@@ -31,7 +31,7 @@ class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
                     parent,
                     false
                 )
-                ChatViewHolder.ItemChatSenderViewHolder(itemBinding)
+                ChatViewHolder.ItemChatSenderViewHolder(itemBinding, parent.context)
             }
 
             else -> throw IllegalArgumentException("Invalid type")

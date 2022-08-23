@@ -2,14 +2,15 @@ package com.br.usemobile.poc_library.view.chat
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.common.CustomChat
+import androidx.core.content.ContextCompat
+import com.br.usemobile.poc_library.common.ChatManager
 import com.br.usemobile.poc_library.common.UserInfo
 import com.br.usemobile.poc_library.databinding.ActivityChatBinding
 
 class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBinding
-    lateinit var customLayout: CustomChat
+
     lateinit var userInfo: UserInfo
 
 
@@ -17,13 +18,18 @@ class ChatActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setUpLayout()
         getIntentScreen()
     }
 
     private fun getIntentScreen() {
-        customLayout = intent.getSerializableExtra("Custom") as CustomChat
         userInfo = intent.getSerializableExtra("UserInfo") as UserInfo
+    }
 
+    private fun setUpLayout(){
+        binding.apply {
+            appBarLayout.backgroundTintList = ContextCompat.getColorStateList(this@ChatActivity, ChatManager.getManager().colorPrimary)
+        }
     }
 
 }

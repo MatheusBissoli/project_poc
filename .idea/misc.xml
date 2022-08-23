@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usemobile/Desktop/Projetos/sdk/project_poc/app/src/main/res/drawable/ic_arrow.xml" value="0.1075" />
         <entry key="..\:/Users/Usemobile/Desktop/Projetos/sdk/project_poc/poc_library/src/main/res/drawable/background_item_chat_sender.xml" value="0.181" />
         <entry key="..\:/Users/Usemobile/Desktop/Projetos/sdk/project_poc/poc_library/src/main/res/drawable/background_item_chat_user.xml" value="0.181" />
         <entry key="..\:/Users/Usemobile/Desktop/Projetos/sdk/project_poc/poc_library/src/main/res/layout/activity_chat.xml" value="0.264" />

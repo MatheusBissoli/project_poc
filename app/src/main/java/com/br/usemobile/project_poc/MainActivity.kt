@@ -1,11 +1,7 @@
 package com.br.usemobile.project_poc
 
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.common.BottomSheetManager
 import com.br.usemobile.poc_library.common.ChatManager
 
 class MainActivity : AppCompatActivity() {
@@ -35,21 +31,14 @@ class MainActivity : AppCompatActivity() {
 //            buttonText = "OPEN "
 //        )
 
+        ChatManager.getManager().configIcons(R.drawable.ic_arrow)
+        ChatManager.getManager()
+            .configColors(colorPrimary = R.color.purple_700, colorSecondary = R.color.purple_200)
         ChatManager.getManager().startActivityBottomSheet(
             this,
             userName = "Lary",
             userCredential = "asuhauhsuahsua"
         )
-
-    }
-
-    override fun onResume() {
-        super.onResume()
-//        Handler(Looper.getMainLooper()).postDelayed({
-//            BottomSheetManager.getManager().openExemplo() {
-//                Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
-//            }
-//        }, 5000L)
     }
 
 
