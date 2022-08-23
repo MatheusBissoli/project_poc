@@ -1,5 +1,12 @@
 package com.br.usemobile.poc_library.common
 
 interface ListenerInterface {
-    fun onClick(string: String)
+
+    fun onInit()
+
+    fun onAuth()
+
+    fun onMessageReceived()
+
+    fun onMessageSend()
 }

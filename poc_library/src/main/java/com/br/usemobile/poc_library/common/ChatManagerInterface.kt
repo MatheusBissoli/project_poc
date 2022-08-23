@@ -13,4 +13,13 @@ interface ChatManagerInterface {
     )
 
     fun configIcons(iconSend: Int)
+
+    fun setListener(listener: ListenerInterface)
+
+    fun notifyReceivedMessage()
+
+    fun notifySendMessage()
+
+    fun notifyInit()
+
 }

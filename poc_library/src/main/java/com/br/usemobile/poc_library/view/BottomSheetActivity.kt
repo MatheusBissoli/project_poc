@@ -80,7 +80,7 @@ class BottomSheetActivity : AppCompatActivity() {
 //                    "positivo",
 //                    Toast.LENGTH_SHORT
 //                ).show()
-                listenerInterface.onClick("positivo")
+                //listenerInterface.onClick("positivo")
             }
         })
         builder.setNegativeButton("Negativo", object : DialogInterface.OnClickListener {
@@ -90,7 +90,7 @@ class BottomSheetActivity : AppCompatActivity() {
 //                    "negativo",
 //                    Toast.LENGTH_SHORT
 //                ).show()
-                listenerInterface.onClick("negativo")
+               // listenerInterface.onClick("negativo")
             }
         })
         val alerta = builder.create()

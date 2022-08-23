@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.br.usemobile.poc_library.common.ChatManager
+import com.br.usemobile.poc_library.common.ChatManagerInterface
 import com.br.usemobile.poc_library.common.UserInfo
 import com.br.usemobile.poc_library.databinding.ActivityChatBinding
 
@@ -20,6 +21,7 @@ class ChatActivity : AppCompatActivity() {
         setContentView(binding.root)
         setUpLayout()
         getIntentScreen()
+        ChatManager.getManager().notifyInit()
     }
 
     private fun getIntentScreen() {

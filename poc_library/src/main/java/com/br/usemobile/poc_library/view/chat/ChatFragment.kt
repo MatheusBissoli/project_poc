@@ -1,6 +1,8 @@
 package com.br.usemobile.poc_library.view.chat
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,7 +73,14 @@ class ChatFragment : Fragment() {
             val message = createMessage(editTextMessage.text.toString())
             editTextMessage.text.clear()
             chatAdapter.add(message)
-            chatAdapter.add(generateMessageSender())
+            ChatManager.getManager().notifySendMessage()
+
+            //Simula resposta de um outro usuário
+            Handler(Looper.getMainLooper()).postDelayed({
+                chatAdapter.add(generateMessageSender())
+                ChatManager.getManager().notifyReceivedMessage()
+            }, 5000L)
+
         }
     }
 

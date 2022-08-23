@@ -19,6 +19,10 @@ class ChatManager : ChatManagerInterface {
     val iconSend: Int
         get() = _iconSend
 
+    private lateinit var _listener: ListenerInterface
+    val listener: ListenerInterface
+        get() = _listener
+
     companion object {
         private var managerInstance: ChatManager? = null
 
@@ -56,4 +60,21 @@ class ChatManager : ChatManagerInterface {
     override fun configIcons(iconSend: Int) {
         _iconSend = iconSend
     }
+
+    override fun setListener(listener: ListenerInterface) {
+        _listener = listener
+    }
+
+    override fun notifyReceivedMessage() {
+        _listener.onMessageReceived()
+    }
+
+    override fun notifySendMessage() {
+        _listener.onMessageSend()
+    }
+
+    override fun notifyInit() {
+        _listener.onInit()
+    }
+
 }
