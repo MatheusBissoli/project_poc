@@ -12,7 +12,7 @@ import com.br.usemobile.poc_library.view.adapter.ListConversationsAdapter
 import com.br.usemobile.poc_library.view.model.Conversation
 
 
-class ListConversationsFragment : Fragment() {
+internal class ListConversationsFragment : Fragment() {
 
     private lateinit var binding: FragmentListConversationsBinding
 

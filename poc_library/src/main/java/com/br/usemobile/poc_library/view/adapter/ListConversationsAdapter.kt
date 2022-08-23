@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.br.usemobile.poc_library.databinding.ItemConversationAdapterBinding
 import com.br.usemobile.poc_library.view.model.Conversation
 
-class ListConversationsAdapter : RecyclerView.Adapter<ListConversationsAdapter.ItemsViewHolder>() {
+internal class ListConversationsAdapter : RecyclerView.Adapter<ListConversationsAdapter.ItemsViewHolder>() {
 
     private var list: MutableList<Conversation> = mutableListOf()
     private lateinit var onClick: (String) -> Unit

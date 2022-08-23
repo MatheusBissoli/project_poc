@@ -1,4 +1,4 @@
-package com.br.usemobile.poc_library.common
+package com.br.usemobile.poc_library.external
 
 import android.content.Context
 

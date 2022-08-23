@@ -1,6 +1,6 @@
 package com.br.usemobile.poc_library.view.model
 
-sealed class ItemChat {
+internal sealed class ItemChat {
 
     data class User(
         val message: String,

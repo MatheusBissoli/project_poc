@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import com.br.usemobile.poc_library.common.ChatManager
+import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.databinding.ItemChatSenderBinding
 import com.br.usemobile.poc_library.databinding.ItemChatUserBinding
 import com.br.usemobile.poc_library.view.model.ItemChat
 
 
-sealed class ChatViewHolder(binding: ViewBinding) :
+internal sealed class ChatViewHolder(binding: ViewBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
     class ItemChatUserViewHolder(

@@ -1,4 +1,4 @@
-package com.br.usemobile.poc_library.common
+package com.br.usemobile.poc_library.external
 
 import android.content.Context
 import android.content.Intent
@@ -52,7 +52,7 @@ class BottomSheetManager {
         }
     }
 
-    fun setActivity(activity: BottomSheetActivity) {
+    internal fun setActivity(activity: BottomSheetActivity) {
         this.activity = activity
     }
 }

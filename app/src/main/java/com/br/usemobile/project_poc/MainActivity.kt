@@ -3,8 +3,8 @@ package com.br.usemobile.project_poc
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.common.ChatManager
-import com.br.usemobile.poc_library.common.ListenerInterface
+import com.br.usemobile.poc_library.external.ChatManager
+import com.br.usemobile.poc_library.external.ListenerInterface
 
 class MainActivity : AppCompatActivity() {
 
@@ -64,6 +64,4 @@ class MainActivity : AppCompatActivity() {
             userCredential = "asuhauhsuahsua"
         )
     }
-
-
 }

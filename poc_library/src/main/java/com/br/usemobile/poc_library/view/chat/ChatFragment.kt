@@ -9,12 +9,12 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.br.usemobile.poc_library.common.ChatManager
+import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.databinding.FragmentChatBinding
 import com.br.usemobile.poc_library.view.adapter.ChatAdapter
 import com.br.usemobile.poc_library.view.model.ItemChat
 
-class ChatFragment : Fragment() {
+internal class ChatFragment : Fragment() {
 
     private lateinit var binding: FragmentChatBinding
 

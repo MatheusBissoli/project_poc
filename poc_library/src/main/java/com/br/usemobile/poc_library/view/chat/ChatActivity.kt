@@ -3,12 +3,11 @@ package com.br.usemobile.poc_library.view.chat
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import com.br.usemobile.poc_library.common.ChatManager
-import com.br.usemobile.poc_library.common.ChatManagerInterface
-import com.br.usemobile.poc_library.common.UserInfo
+import com.br.usemobile.poc_library.external.ChatManager
+import com.br.usemobile.poc_library.external.UserInfo
 import com.br.usemobile.poc_library.databinding.ActivityChatBinding
 
-class ChatActivity : AppCompatActivity() {
+internal class ChatActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityChatBinding
 

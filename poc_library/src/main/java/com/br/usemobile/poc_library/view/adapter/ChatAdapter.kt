@@ -8,7 +8,7 @@ import com.br.usemobile.poc_library.databinding.ItemChatUserBinding
 import com.br.usemobile.poc_library.view.model.ItemChat
 
 
-class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+internal class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     private val adapterData = mutableListOf<ItemChat>()
 
