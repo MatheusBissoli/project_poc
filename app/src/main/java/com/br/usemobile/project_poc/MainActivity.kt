@@ -5,8 +5,7 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.BottomSheetManager
-import kotlinx.coroutines.delay
+import com.br.usemobile.poc_library.view.BottomSheetManager
 
 class MainActivity : AppCompatActivity() {
 

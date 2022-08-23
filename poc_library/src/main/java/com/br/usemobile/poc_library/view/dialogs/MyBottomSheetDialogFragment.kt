@@ -1,4 +1,4 @@
-package com.br.usemobile.testepoc
+package com.br.usemobile.poc_library.view.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

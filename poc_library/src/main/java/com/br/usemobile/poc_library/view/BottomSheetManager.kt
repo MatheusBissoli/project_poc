@@ -1,7 +1,9 @@
-package com.br.usemobile.poc_library
+package com.br.usemobile.poc_library.view
 
 import android.content.Context
 import android.content.Intent
+import com.br.usemobile.poc_library.view.model.CustomScreen
+import com.br.usemobile.poc_library.R
 
 class BottomSheetManager {
 

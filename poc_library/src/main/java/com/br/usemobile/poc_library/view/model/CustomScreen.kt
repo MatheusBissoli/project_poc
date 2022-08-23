@@ -1,5 +1,6 @@
-package com.br.usemobile.poc_library
+package com.br.usemobile.poc_library.view.model
 
+import com.br.usemobile.poc_library.R
 import java.io.Serializable
 
 data class CustomScreen(

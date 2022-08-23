@@ -1,8 +1,7 @@
-package com.br.usemobile.poc_library
+package com.br.usemobile.poc_library.view
 
 import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,8 +9,11 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.br.usemobile.poc_library.view.model.CustomScreen
+import com.br.usemobile.poc_library.common.ListenerInterface
+import com.br.usemobile.poc_library.R
 import com.br.usemobile.poc_library.databinding.BottomSheetActivityBinding
-import com.br.usemobile.testepoc.MyBottomSheetDialogFragment
+import com.br.usemobile.poc_library.view.dialogs.MyBottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class BottomSheetActivity : AppCompatActivity() {
