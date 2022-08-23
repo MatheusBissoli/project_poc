@@ -5,7 +5,8 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.br.usemobile.poc_library.view.BottomSheetManager
+import com.br.usemobile.poc_library.common.BottomSheetManager
+import com.br.usemobile.poc_library.common.ChatManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,21 +29,27 @@ class MainActivity : AppCompatActivity() {
 //            Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
 //        }
 
-        BottomSheetManager.getManager().startActivityBottomSheet(
+//        BottomSheetManager.getManager().startActivityBottomSheet(
+//            this,
+//            title = "",
+//            buttonText = "OPEN "
+//        )
+
+        ChatManager.getManager().startActivityBottomSheet(
             this,
-            title = "",
-            buttonText = "OPEN "
+            userName = "Lary",
+            userCredential = "asuhauhsuahsua"
         )
 
     }
 
     override fun onResume() {
         super.onResume()
-        Handler(Looper.getMainLooper()).postDelayed({
-            BottomSheetManager.getManager().openExemplo() {
-                Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
-            }
-        }, 5000L)
+//        Handler(Looper.getMainLooper()).postDelayed({
+//            BottomSheetManager.getManager().openExemplo() {
+//                Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+//            }
+//        }, 5000L)
     }
 
 

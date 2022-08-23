@@ -12,6 +12,7 @@ import androidx.fragment.app.FragmentManager
 import com.br.usemobile.poc_library.view.model.CustomScreen
 import com.br.usemobile.poc_library.common.ListenerInterface
 import com.br.usemobile.poc_library.R
+import com.br.usemobile.poc_library.common.BottomSheetManager
 import com.br.usemobile.poc_library.databinding.BottomSheetActivityBinding
 import com.br.usemobile.poc_library.view.dialogs.MyBottomSheetDialogFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
