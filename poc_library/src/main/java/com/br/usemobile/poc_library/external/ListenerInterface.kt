@@ -1,12 +1,12 @@
 package com.br.usemobile.poc_library.external
 
-interface ListenerInterface {
+public interface ListenerInterface {
 
-    fun onInit()
+    public fun onInit()
 
-    fun onAuth()
+    public fun onAuth()
 
-    fun onMessageReceived()
+    public fun onMessageReceived()
 
-    fun onMessageSend()
+    public fun onMessageSend()
 }

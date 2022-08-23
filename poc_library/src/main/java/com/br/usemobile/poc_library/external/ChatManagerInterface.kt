@@ -2,24 +2,24 @@ package com.br.usemobile.poc_library.external
 
 import android.content.Context
 
-interface ChatManagerInterface {
+public interface ChatManagerInterface {
 
-    fun configColors(colorPrimary: Int, colorSecondary: Int)
+    public fun configColors(colorPrimary: Int, colorSecondary: Int)
 
-    fun startActivityBottomSheet(
+    public fun startActivityBottomSheet(
         context: Context,
         userName: String,
         userCredential: String
     )
 
-    fun configIcons(iconSend: Int)
+    public fun configIcons(iconSend: Int)
 
-    fun setListener(listener: ListenerInterface)
+    public fun setListener(listener: ListenerInterface)
 
-    fun notifyReceivedMessage()
+    public fun notifyReceivedMessage()
 
-    fun notifySendMessage()
+    public fun notifySendMessage()
 
-    fun notifyInit()
+    public fun notifyInit()
 
 }

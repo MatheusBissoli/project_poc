@@ -5,28 +5,28 @@ import android.content.Intent
 import com.br.usemobile.poc_library.R
 import com.br.usemobile.poc_library.view.chat.ChatActivity
 
-class ChatManager : ChatManagerInterface {
+public class ChatManager : ChatManagerInterface {
 
     private var _colorPrimary: Int = R.color.teal_700
-    val colorPrimary: Int
+    public val colorPrimary: Int
         get() = _colorPrimary
 
     private var _colorSecondary: Int = R.color.teal_200
-    val colorSecondary: Int
+    public val colorSecondary: Int
         get() = _colorSecondary
 
     private var _iconSend: Int = R.drawable.ic_send
-    val iconSend: Int
+    public val iconSend: Int
         get() = _iconSend
 
     private lateinit var _listener: ListenerInterface
-    val listener: ListenerInterface
+    public val listener: ListenerInterface
         get() = _listener
 
-    companion object {
+    public companion object {
         private var managerInstance: ChatManager? = null
 
-        fun getManager(): ChatManager {
+        public fun getManager(): ChatManager {
             if (managerInstance == null) {
                 managerInstance = ChatManager()
             }

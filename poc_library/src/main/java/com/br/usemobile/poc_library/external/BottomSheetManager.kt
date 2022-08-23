@@ -6,15 +6,15 @@ import com.br.usemobile.poc_library.view.model.CustomScreen
 import com.br.usemobile.poc_library.R
 import com.br.usemobile.poc_library.view.BottomSheetActivity
 
-class BottomSheetManager {
+public class BottomSheetManager {
 
     private lateinit var activity: BottomSheetActivity
 
 
-    companion object {
+    public companion object {
         private var managerInstance: BottomSheetManager? = null
 
-        fun getManager(): BottomSheetManager {
+        public  fun getManager(): BottomSheetManager {
             if (managerInstance == null) {
                 managerInstance = BottomSheetManager()
             }
@@ -22,7 +22,7 @@ class BottomSheetManager {
         }
     }
 
-    fun startActivityBottomSheet(
+    public fun startActivityBottomSheet(
         context: Context,
         title: String = "ChatTest",
         color: Int = R.color.black,
@@ -40,13 +40,13 @@ class BottomSheetManager {
 
     }
 
-    fun startActivityBottomSheet(context: Context) {
+    public fun startActivityBottomSheet(context: Context) {
         val i = Intent(context, BottomSheetActivity::class.java)
         i.putExtra("Custom", CustomScreen())
         context.startActivity(i)
     }
 
-    fun openExemplo(callback: (String) -> Unit) {
+    public fun openExemplo(callback: (String) -> Unit) {
         activity.exemploSimples {
             callback.invoke(it)
         }
