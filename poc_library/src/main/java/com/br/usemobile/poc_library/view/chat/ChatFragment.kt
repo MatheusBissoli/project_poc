@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.databinding.FragmentChatBinding
-import com.br.usemobile.poc_library.view.adapter.ChatAdapter
-import com.br.usemobile.poc_library.view.model.ItemChat
+import com.br.usemobile.poc_library.view.chat.adapter.ChatAdapter
+import com.br.usemobile.poc_library.view.chat.model.ItemChat
 
 internal class ChatFragment : Fragment() {
 

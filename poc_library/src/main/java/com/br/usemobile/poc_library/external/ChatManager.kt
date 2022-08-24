@@ -3,7 +3,7 @@ package com.br.usemobile.poc_library.external
 import android.content.Context
 import android.content.Intent
 import com.br.usemobile.poc_library.R
-import com.br.usemobile.poc_library.view.chat.ChatActivity
+import com.br.usemobile.poc_library.view.ChatActivity
 
 public class ChatManager : ChatManagerInterface {
 

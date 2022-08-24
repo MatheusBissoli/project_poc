@@ -1,4 +1,4 @@
-package com.br.usemobile.poc_library.view.chat
+package com.br.usemobile.poc_library.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

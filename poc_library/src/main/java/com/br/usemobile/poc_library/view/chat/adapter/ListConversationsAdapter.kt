@@ -1,10 +1,10 @@
-package com.br.usemobile.poc_library.view.adapter
+package com.br.usemobile.poc_library.view.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.usemobile.poc_library.databinding.ItemConversationAdapterBinding
-import com.br.usemobile.poc_library.view.model.Conversation
+import com.br.usemobile.poc_library.view.chat.model.Conversation
 
 internal class ListConversationsAdapter : RecyclerView.Adapter<ListConversationsAdapter.ItemsViewHolder>() {
 

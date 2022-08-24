@@ -2,9 +2,9 @@ package com.br.usemobile.poc_library.external
 
 import android.content.Context
 import android.content.Intent
-import com.br.usemobile.poc_library.view.model.CustomScreen
+import com.br.usemobile.poc_library.view.chat.model.CustomScreen
 import com.br.usemobile.poc_library.R
-import com.br.usemobile.poc_library.view.BottomSheetActivity
+import com.br.usemobile.poc_library.view.bottomsheet.BottomSheetActivity
 
 public class BottomSheetManager {
 

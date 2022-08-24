@@ -1,4 +1,4 @@
-package com.br.usemobile.poc_library.view.adapter
+package com.br.usemobile.poc_library.view.chat.adapter
 
 import android.content.Context
 import androidx.core.content.ContextCompat
@@ -7,7 +7,7 @@ import androidx.viewbinding.ViewBinding
 import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.databinding.ItemChatSenderBinding
 import com.br.usemobile.poc_library.databinding.ItemChatUserBinding
-import com.br.usemobile.poc_library.view.model.ItemChat
+import com.br.usemobile.poc_library.view.chat.model.ItemChat
 
 
 internal sealed class ChatViewHolder(binding: ViewBinding) :

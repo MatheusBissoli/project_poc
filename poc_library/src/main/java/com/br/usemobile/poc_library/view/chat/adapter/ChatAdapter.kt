@@ -1,11 +1,11 @@
-package com.br.usemobile.poc_library.view.adapter
+package com.br.usemobile.poc_library.view.chat.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.br.usemobile.poc_library.databinding.ItemChatSenderBinding
 import com.br.usemobile.poc_library.databinding.ItemChatUserBinding
-import com.br.usemobile.poc_library.view.model.ItemChat
+import com.br.usemobile.poc_library.view.chat.model.ItemChat
 
 
 internal class ChatAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

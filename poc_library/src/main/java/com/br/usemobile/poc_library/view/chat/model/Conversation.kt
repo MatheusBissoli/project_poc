@@ -1,4 +1,4 @@
-package com.br.usemobile.poc_library.view.model
+package com.br.usemobile.poc_library.view.chat.model
 
 internal data class Conversation(
     val id: String,

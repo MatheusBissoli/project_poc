@@ -8,8 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.usemobile.poc_library.databinding.FragmentListConversationsBinding
-import com.br.usemobile.poc_library.view.adapter.ListConversationsAdapter
-import com.br.usemobile.poc_library.view.model.Conversation
+import com.br.usemobile.poc_library.view.chat.adapter.ListConversationsAdapter
+import com.br.usemobile.poc_library.view.chat.model.Conversation
 
 
 internal class ListConversationsFragment : Fragment() {
