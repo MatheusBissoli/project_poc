@@ -9,12 +9,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
-import com.br.usemobile.poc_library.view.chat.model.CustomScreen
-import com.br.usemobile.poc_library.external.ListenerInterface
 import com.br.usemobile.poc_library.R
-import com.br.usemobile.poc_library.external.BottomSheetManager
 import com.br.usemobile.poc_library.databinding.BottomSheetActivityBinding
+import com.br.usemobile.poc_library.external.BottomSheetManager
+import com.br.usemobile.poc_library.external.ListenerInterface
 import com.br.usemobile.poc_library.view.bottomsheet.dialogs.MyBottomSheetDialogFragment
+import com.br.usemobile.poc_library.view.chat.model.CustomScreen
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 internal class BottomSheetActivity : AppCompatActivity() {

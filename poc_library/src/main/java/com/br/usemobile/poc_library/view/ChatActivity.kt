@@ -3,9 +3,11 @@ package com.br.usemobile.poc_library.view
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import com.br.usemobile.poc_library.databinding.ActivityChatBinding
 import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.external.UserInfo
-import com.br.usemobile.poc_library.databinding.ActivityChatBinding
+import com.google.firebase.FirebaseApp
+
 
 internal class ChatActivity : AppCompatActivity() {
 
@@ -16,6 +18,7 @@ internal class ChatActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        FirebaseApp.initializeApp(this)
         binding = ActivityChatBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpLayout()

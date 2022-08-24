@@ -1,8 +1,13 @@
 package com.br.usemobile.poc_library.application
 
 import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import com.google.firebase.FirebaseApp
 
-@HiltAndroidApp
+
 internal class ChatApplication: Application() {
+
+    override fun onCreate() {
+        super.onCreate()
+        FirebaseApp.initializeApp(this)
+    }
 }
