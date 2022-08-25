@@ -26,9 +26,8 @@ internal class ListConversationsAdapter : RecyclerView.Adapter<ListConversations
     }
 
     fun addItems(list: List<Conversation>) {
-        val startIndex = this.list.size
         this.list.addAll(list)
-        notifyItemRangeInserted(startIndex, list.size)
+        notifyDataSetChanged()
     }
 
     fun clear() {
@@ -57,7 +56,7 @@ internal class ListConversationsAdapter : RecyclerView.Adapter<ListConversations
 
             }
             itemBinding.item.setOnClickListener {
-                onClick.invoke(item.id)
+                onClick.invoke(item.senderName)
             }
         }
     }

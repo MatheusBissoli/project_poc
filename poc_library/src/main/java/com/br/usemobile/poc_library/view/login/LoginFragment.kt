@@ -11,10 +11,11 @@ import androidx.navigation.fragment.findNavController
 import com.br.usemobile.poc_library.common.LoginViewModelFactory
 import com.br.usemobile.poc_library.data.repository.LoginRepositoryImp
 import com.br.usemobile.poc_library.data.service.FirebaseServiceTestImp
+import com.br.usemobile.poc_library.data.service.user.UserFirebaseImp
 import com.br.usemobile.poc_library.databinding.FragmentLoginBinding
 import com.br.usemobile.poc_library.domain.repository.LoginRepository
-import com.br.usemobile.poc_library.domain.usecase.LoginUseCase
-import com.br.usemobile.poc_library.domain.usecase.LoginUseCaseImp
+import com.br.usemobile.poc_library.domain.usecase.login.LoginUseCase
+import com.br.usemobile.poc_library.domain.usecase.login.LoginUseCaseImp
 import com.br.usemobile.poc_library.external.ChatManager
 
 internal class LoginFragment : Fragment() {
@@ -52,9 +53,11 @@ internal class LoginFragment : Fragment() {
             errorCreateAccount.observe(viewLifecycleOwner) {
                 Toast.makeText(requireContext(), "Error create account", Toast.LENGTH_SHORT).show()
             }
-            login.observe(viewLifecycleOwner) {
+            login.observe(viewLifecycleOwner) { user ->
                 ChatManager.getManager().notifyOnAuth()
-                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListConversationsFragment())
+                findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListConversationsFragment(
+                    user?.uid ?: ""
+                ))
             }
             errorLogin.observe(viewLifecycleOwner) {
                 Toast.makeText(requireContext(), "Error login account", Toast.LENGTH_SHORT).show()

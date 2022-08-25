@@ -1,8 +1,6 @@
-package com.br.usemobile.poc_library.domain.usecase
+package com.br.usemobile.poc_library.domain.usecase.login
 
 import com.br.usemobile.poc_library.common.ListenerFirebase
-import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.flow.Flow
 
 internal interface LoginUseCase {
 

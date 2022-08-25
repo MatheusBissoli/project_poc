@@ -5,8 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.br.usemobile.poc_library.common.ChatViewModelFactory
+import com.br.usemobile.poc_library.data.service.chat.ChatFirebaseImp
 import com.br.usemobile.poc_library.databinding.FragmentListConversationsBinding
 import com.br.usemobile.poc_library.view.chat.adapter.ListConversationsAdapter
 import com.br.usemobile.poc_library.view.chat.model.Conversation
@@ -20,6 +24,15 @@ internal class ListConversationsFragment : Fragment() {
         ListConversationsAdapter()
     }
 
+    private val viewModel: ChatViewModel by lazy {
+        val chat = ChatFirebaseImp()
+        val factory = ChatViewModelFactory(chat)
+        ViewModelProvider(requireActivity(), factory)[ChatViewModel::class.java]
+    }
+
+    private val args: ListConversationsFragmentArgs by navArgs()
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -30,48 +43,65 @@ internal class ListConversationsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setUpAdapter()
+        setUpObservers()
+        viewModel.getContato(args.uid)
     }
 
-    private fun setUpAdapter() {
+    private fun setUpObservers() {
+        viewModel.contato.observe(viewLifecycleOwner) { contato ->
+            setUpAdapter(contato)
+        }
+    }
 
+    private fun setUpAdapter(contato: String) {
+        val conv = Conversation(
+            id = "1",
+            senderName = contato,
+            lastMessage = "",
+            timeLastMessage = ""
+        )
         binding.recyclerViewConversation.apply {
             adapter = listConversationAdapter
             layoutManager = LinearLayoutManager(requireContext())
         }
-        listConversationAdapter.addItems(generateList())
+        listConversationAdapter.addItems(
+            listOf(conv)
+        )
         listConversationAdapter.setOnClick {
-            findNavController().navigate(ListConversationsFragmentDirections.actionListConversationsFragmentToChatFragment())
+            findNavController().navigate(ListConversationsFragmentDirections.actionListConversationsFragmentToChatFragment(
+                it,
+                args.uid
+            ))
         }
     }
 
-
-    private fun generateList(): List<Conversation> {
-        return listOf(
-            Conversation(
-                id = "1",
-                senderName = "Name",
-                lastMessage = "Last ",
-                timeLastMessage = "14:55"
-            ),
-            Conversation(
-                id = "1",
-                senderName = "Name",
-                lastMessage = "Last ",
-                timeLastMessage = "14:55"
-            ),
-            Conversation(
-                id = "1",
-                senderName = "Name",
-                lastMessage = "Last ",
-                timeLastMessage = "14:55"
-            ),
-            Conversation(
-                id = "1",
-                senderName = "Name",
-                lastMessage = "Last ",
-                timeLastMessage = "14:55"
-            ),
-        )
-    }
+//
+//    private fun generateList(): List<Conversation> {
+//        return listOf(
+//            Conversation(
+//                id = "1",
+//                senderName = "Name",
+//                lastMessage = "Last ",
+//                timeLastMessage = "14:55"
+//            ),
+//            Conversation(
+//                id = "1",
+//                senderName = "Name",
+//                lastMessage = "Last ",
+//                timeLastMessage = "14:55"
+//            ),
+//            Conversation(
+//                id = "1",
+//                senderName = "Name",
+//                lastMessage = "Last ",
+//                timeLastMessage = "14:55"
+//            ),
+//            Conversation(
+//                id = "1",
+//                senderName = "Name",
+//                lastMessage = "Last ",
+//                timeLastMessage = "14:55"
+//            ),
+//        )
+//    }
 }
