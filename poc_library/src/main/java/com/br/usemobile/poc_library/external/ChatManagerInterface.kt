@@ -22,4 +22,6 @@ public interface ChatManagerInterface {
 
     public fun notifyInit()
 
+    public fun notifyOnAuth()
+
 }

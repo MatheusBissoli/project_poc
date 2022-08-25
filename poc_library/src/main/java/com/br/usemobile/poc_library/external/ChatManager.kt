@@ -77,4 +77,8 @@ public class ChatManager : ChatManagerInterface {
         _listener.onInit()
     }
 
+    override fun notifyOnAuth() {
+        _listener.onAuth()
+    }
+
 }

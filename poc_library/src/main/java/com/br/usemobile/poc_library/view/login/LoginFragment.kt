@@ -15,6 +15,7 @@ import com.br.usemobile.poc_library.databinding.FragmentLoginBinding
 import com.br.usemobile.poc_library.domain.repository.LoginRepository
 import com.br.usemobile.poc_library.domain.usecase.LoginUseCase
 import com.br.usemobile.poc_library.domain.usecase.LoginUseCaseImp
+import com.br.usemobile.poc_library.external.ChatManager
 
 internal class LoginFragment : Fragment() {
 
@@ -52,6 +53,7 @@ internal class LoginFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error create account", Toast.LENGTH_SHORT).show()
             }
             login.observe(viewLifecycleOwner) {
+                ChatManager.getManager().notifyOnAuth()
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListConversationsFragment())
             }
             errorLogin.observe(viewLifecycleOwner) {

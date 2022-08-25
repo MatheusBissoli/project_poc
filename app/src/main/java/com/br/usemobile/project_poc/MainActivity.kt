@@ -45,6 +45,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 override fun onAuth() {
+                    Toast.makeText(this@MainActivity, "LoginSuccess", Toast.LENGTH_SHORT).show()
 
                 }
 
