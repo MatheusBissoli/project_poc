@@ -1,8 +1,7 @@
-package com.br.usemobile.poc_library
+package com.br.usemobile.poc_library.view.bottomsheet
 
 import android.content.Context
 import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
@@ -10,29 +9,42 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
+import com.br.usemobile.poc_library.R
 import com.br.usemobile.poc_library.databinding.BottomSheetActivityBinding
-import com.br.usemobile.testepoc.MyBottomSheetDialogFragment
+import com.br.usemobile.poc_library.external.BottomSheetManager
+import com.br.usemobile.poc_library.external.ListenerInterface
+import com.br.usemobile.poc_library.view.bottomsheet.dialogs.MyBottomSheetDialogFragment
+import com.br.usemobile.poc_library.view.chat.model.CustomScreen
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 
-class Invoke(private val context: Context) : AppCompatActivity() {
-
-    fun init() {
-        context.startActivity(Intent(context, BottomSheetActivity::class.java))
-    }
-}
-
-class BottomSheetActivity : AppCompatActivity() {
+internal class BottomSheetActivity : AppCompatActivity() {
 
     var binding: BottomSheetActivityBinding? = null
+    lateinit var customLayout: CustomScreen
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = BottomSheetActivityBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+        setActivityManager()
+        getIntentScreen()
+        setUpLayout()
 //        exemploSimples()
 //        exemploCustomizado()
 //        bottomSheetDialog()
-//        openHideBottomSheet()
+        openHideBottomSheet()
+    }
+
+    private fun getIntentScreen(){
+        customLayout = intent.getSerializableExtra("Custom") as CustomScreen
+    }
+
+    private fun setUpLayout(){
+        binding?.buttonTeste?.text = customLayout.buttonText
+    }
+
+    private fun setActivityManager(){
+        BottomSheetManager.getManager().setActivity(activity = this)
     }
 
 
@@ -43,7 +55,7 @@ class BottomSheetActivity : AppCompatActivity() {
     }
 
     fun openHideBottomSheet() {
-        binding?.buttonBottomSheetModal?.apply {
+        binding?.buttonTeste?.apply {
             visibility = View.VISIBLE
             val myBottomSheet = binding?.myBottomSheet?.root
             setOnClickListener {
@@ -57,7 +69,7 @@ class BottomSheetActivity : AppCompatActivity() {
         }
     }
 
-    fun exemploSimples(context: Context, listenerInterface: ListenerInterface) {
+    fun exemploSimples(context: Context , listenerInterface: ListenerInterface) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context);
         builder.setTitle("Titulo")
         builder.setMessage("Qualifique este software")
@@ -68,7 +80,7 @@ class BottomSheetActivity : AppCompatActivity() {
 //                    "positivo",
 //                    Toast.LENGTH_SHORT
 //                ).show()
-                listenerInterface.onClick("positivo")
+                //listenerInterface.onClick("positivo")
             }
         })
         builder.setNegativeButton("Negativo", object : DialogInterface.OnClickListener {
@@ -78,14 +90,14 @@ class BottomSheetActivity : AppCompatActivity() {
 //                    "negativo",
 //                    Toast.LENGTH_SHORT
 //                ).show()
-                listenerInterface.onClick("negativo")
+               // listenerInterface.onClick("negativo")
             }
         })
         val alerta = builder.create()
         alerta.show()
     }
 
-    fun exemploSimples(context: Context, callback: (String) -> Unit) {
+    fun exemploSimples(context: Context = this, callback: (String) -> Unit) {
         val builder: AlertDialog.Builder = AlertDialog.Builder(context);
         builder.setTitle("Titulo")
         builder.setMessage("Qualifique este software")

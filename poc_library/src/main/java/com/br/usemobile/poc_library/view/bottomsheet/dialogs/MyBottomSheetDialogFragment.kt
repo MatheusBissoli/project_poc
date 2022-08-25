@@ -1,4 +1,4 @@
-package com.br.usemobile.testepoc
+package com.br.usemobile.poc_library.view.bottomsheet.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,7 @@ import android.widget.ArrayAdapter
 import com.br.usemobile.poc_library.databinding.BottomSheetModalBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
-class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
+internal class MyBottomSheetDialogFragment : BottomSheetDialogFragment() {
 
     var binding: BottomSheetModalBinding? = null
 
