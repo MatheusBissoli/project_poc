@@ -35,11 +35,11 @@
         app:layout_constraintTop_toBottomOf="@id/editText_password" />
 
     <Button
-        android:id="@+id/button_signUp"
+        android:id="@+id/button_createUser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="SignUp"
+        android:text="Create User"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_signIn" />

@@ -1,51 +1,44 @@
 package com.br.usemobile.poc_library.data.service
 
+import com.br.usemobile.poc_library.common.ListenerFirebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 
 internal class FirebaseServiceTestImp : FirebaseServiceTest {
     val auth = FirebaseAuth.getInstance(FirebaseApp.getInstance())
 
+    override suspend fun createUserWithEmailPassword(
+        email: String,
+        password: String,
+        listenerFirebase: ListenerFirebase
+    ) {
+        auth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    task.result?.user?.let { it -> listenerFirebase.onSuccess(it) }
+                } else if (!task.isCanceled) {
+                    task.exception?.let { listenerFirebase.onError(it) }
+                }
+            }
+    }
+
+
     override suspend fun signInWithEmailPassword(
         email: String,
-        password: String
-    ): Flow<FirebaseUser?> =
-        flow {
-            auth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        task.result
-                    } else {
-                        throw Exception(task.exception)
-                    }
-                }.let {
-                    emit(
-                        value = it.result?.user
-                    )
-                }
-        }
+        password: String,
+        listenerFirebase: ListenerFirebase
+    ) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
 
-    override suspend fun signUpWithEmailPassword(
-        email: String,
-        password: String
-    ): Flow<FirebaseUser?> =
-        flow {
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        task.result
-                    } else {
-                        throw Exception(task.exception)
-                    }
-                }.let {
-                    emit(
-                        value = it.result?.user
-                    )
+                if (task.isSuccessful) {
+                    task.result?.user?.let { it -> listenerFirebase.onSuccess(it) }
+                } else if (!task.isCanceled) {
+                    task.exception?.let { listenerFirebase.onError(it) }
                 }
-        }
+            }
+    }
 
 
     override fun signOut(): FirebaseUser? {

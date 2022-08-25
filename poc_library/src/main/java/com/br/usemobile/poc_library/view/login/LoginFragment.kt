@@ -67,10 +67,10 @@ internal class LoginFragment : Fragment() {
                 val password = editTextPassword.text.toString()
                 viewModel.signInWithEmailAndPassword(email, password)
             }
-            buttonSignUp.setOnClickListener {
+            buttonCreateUser.setOnClickListener {
                 val email = editTextEmail.text.toString()
                 val password = editTextPassword.text.toString()
-                viewModel.signUpWithEmailAndPassword(email, password)
+                viewModel.createUserWithEmailAndPassword(email, password)
             }
         }
     }
