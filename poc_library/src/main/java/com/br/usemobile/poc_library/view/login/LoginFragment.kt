@@ -51,7 +51,7 @@ internal class LoginFragment : Fragment() {
                     .show()
             }
             errorCreateAccount.observe(viewLifecycleOwner) {
-                Toast.makeText(requireContext(), "Error create account", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
             }
             login.observe(viewLifecycleOwner) { user ->
                 ChatManager.getManager().notifyOnAuth()
