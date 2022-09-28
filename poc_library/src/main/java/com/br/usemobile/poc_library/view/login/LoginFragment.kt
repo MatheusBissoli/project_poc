@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.br.usemobile.poc_library.common.ChatViewModelFactory
 import com.br.usemobile.poc_library.common.LoginViewModelFactory
 import com.br.usemobile.poc_library.data.repository.LoginRepositoryImp
 import com.br.usemobile.poc_library.data.service.FirebaseServiceTestImp
+import com.br.usemobile.poc_library.data.service.chat.ChatRealTimeDatabaseImp
 import com.br.usemobile.poc_library.data.service.user.UserFirebaseImp
 import com.br.usemobile.poc_library.databinding.FragmentLoginBinding
 import com.br.usemobile.poc_library.domain.repository.LoginRepository
@@ -24,9 +26,10 @@ internal class LoginFragment : Fragment() {
 
     private val viewModel: LoginViewModel by lazy {
         val auth = FirebaseServiceTestImp()
+        val chat = ChatRealTimeDatabaseImp()
         val repository: LoginRepository = LoginRepositoryImp(auth)
         val useCase: LoginUseCase = LoginUseCaseImp(repository)
-        val factory = LoginViewModelFactory(useCase)
+        val factory = LoginViewModelFactory(useCase, chat)
         ViewModelProvider(requireActivity(), factory)[LoginViewModel::class.java]
     }
 
@@ -49,6 +52,7 @@ internal class LoginFragment : Fragment() {
             createAccount.observe(viewLifecycleOwner) {
                 Toast.makeText(requireContext(), "Success create account", Toast.LENGTH_SHORT)
                     .show()
+                viewModel.createProfile(it?.email.toString())
             }
             errorCreateAccount.observe(viewLifecycleOwner) {
                 Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()

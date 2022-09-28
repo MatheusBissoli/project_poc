@@ -5,7 +5,8 @@ import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
-internal class FirebaseServiceTestImp : FirebaseServiceTest {
+internal class FirebaseServiceTestImp(
+) : FirebaseServiceTest {
     val auth = FirebaseAuth.getInstance(FirebaseApp.getInstance())
 
     override suspend fun createUserWithEmailPassword(

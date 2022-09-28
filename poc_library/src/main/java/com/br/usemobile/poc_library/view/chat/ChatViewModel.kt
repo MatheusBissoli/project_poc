@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.br.usemobile.poc_library.common.ListenerChat
 import com.br.usemobile.poc_library.common.ListenerContato
-import com.br.usemobile.poc_library.data.service.chat.ChatFirebase
+import com.br.usemobile.poc_library.data.service.chat.ChatRealTimeDatabase
 
 internal class ChatViewModel(
-    private val chatFirebase: ChatFirebase
+    private val chatRealTimeDatabase: ChatRealTimeDatabase
 ) : ViewModel() {
 
     private val _conversa: MutableLiveData<ArrayList<String>> =
@@ -23,7 +23,7 @@ internal class ChatViewModel(
 
 
     fun listenerChat(id: String) {
-        chatFirebase.listenerChat(id, object : ListenerChat {
+        chatRealTimeDatabase.listenerChat(id, object : ListenerChat {
             override fun onReceivedMessage(message: ArrayList<String>) {
                 _conversa.postValue(message)
             }
@@ -31,11 +31,11 @@ internal class ChatViewModel(
     }
 
     fun sendMessage(id: String, message: String, contato: String) {
-        chatFirebase.sendMessage(id, message, contato)
+        chatRealTimeDatabase.sendMessage(id, message, contato)
     }
 
     fun getContato(id: String) {
-        chatFirebase.getContato(id, object : ListenerContato {
+        chatRealTimeDatabase.getContato(id, object : ListenerContato {
             override fun onSuccess(contato: String) {
                 _contato.postValue(contato)
             }

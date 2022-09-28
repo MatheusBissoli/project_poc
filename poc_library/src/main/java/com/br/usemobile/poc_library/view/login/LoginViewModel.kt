@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.br.usemobile.poc_library.common.ListenerFirebase
+import com.br.usemobile.poc_library.data.service.chat.ChatRealTimeDatabase
 import com.br.usemobile.poc_library.data.service.user.UserFirebase
 import com.br.usemobile.poc_library.domain.usecase.login.LoginUseCase
 import com.google.firebase.auth.FirebaseUser
@@ -14,6 +15,7 @@ import kotlinx.coroutines.launch
 
 internal class LoginViewModel(
     private val loginUseCase: LoginUseCase,
+    private val chatRealTimeDatabase: ChatRealTimeDatabase
 ) : ViewModel() {
 
     private val _login: MutableLiveData<FirebaseUser?> =
@@ -63,6 +65,10 @@ internal class LoginViewModel(
                 }
             })
         }
+    }
+
+    fun createProfile(email :String){
+        chatRealTimeDatabase.createProfileRealDataTime(email)
     }
 
 }

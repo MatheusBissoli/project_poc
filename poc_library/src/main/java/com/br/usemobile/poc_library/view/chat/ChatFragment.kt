@@ -10,7 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.br.usemobile.poc_library.common.ChatViewModelFactory
-import com.br.usemobile.poc_library.data.service.chat.ChatFirebaseImp
+import com.br.usemobile.poc_library.data.service.chat.ChatRealTimeDatabaseImp
 import com.br.usemobile.poc_library.databinding.FragmentChatBinding
 import com.br.usemobile.poc_library.external.ChatManager
 import com.br.usemobile.poc_library.view.chat.adapter.ChatAdapter
@@ -25,7 +25,7 @@ internal class ChatFragment : Fragment() {
     }
 
     private val viewModel: ChatViewModel by lazy {
-        val chat = ChatFirebaseImp()
+        val chat = ChatRealTimeDatabaseImp()
         val factory = ChatViewModelFactory(chat)
         ViewModelProvider(requireActivity(), factory)[ChatViewModel::class.java]
     }
