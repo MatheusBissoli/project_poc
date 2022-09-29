@@ -60,7 +60,11 @@ internal class LoginFragment : Fragment() {
             login.observe(viewLifecycleOwner) { user ->
                 ChatManager.getManager().notifyOnAuth()
                 findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToListConversationsFragment(
-                    user?.uid ?: ""
+                    user?.email?.replace(".", "")
+                        ?.replace("#", "")
+                        ?.replace("$", "")
+                        ?.replace("[", "")
+                        ?.replace("]", "") ?: ""
                 ))
             }
             errorLogin.observe(viewLifecycleOwner) {

@@ -14,7 +14,7 @@
             android:id="@+id/action_listConversationsFragment_to_chatFragment"
             app:destination="@id/chatFragment" />
         <argument
-            android:name="uid"
+            android:name="uidEmail"
             app:argType="string" />
 
     </fragment>

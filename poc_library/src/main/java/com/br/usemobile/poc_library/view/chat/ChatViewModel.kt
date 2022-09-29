@@ -5,6 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.br.usemobile.poc_library.common.ListenerChat
 import com.br.usemobile.poc_library.common.ListenerContato
+import com.br.usemobile.poc_library.common.ListenerContato2
+import com.br.usemobile.poc_library.data.models.ContactModel
 import com.br.usemobile.poc_library.data.service.chat.ChatRealTimeDatabase
 
 internal class ChatViewModel(
@@ -22,8 +24,14 @@ internal class ChatViewModel(
         get() = _contato
 
 
-    fun listenerChat(id: String) {
-        chatRealTimeDatabase.listenerChat(id, object : ListenerChat {
+    private val _addContato: MutableLiveData<String> =
+        MutableLiveData()
+    val addContato: LiveData<String>
+        get() = _addContato
+
+
+    fun listenerChat(id: String, contato: String) {
+        chatRealTimeDatabase.listenerChat(id, contato, object : ListenerChat {
             override fun onReceivedMessage(message: ArrayList<String>) {
                 _conversa.postValue(message)
             }
@@ -39,8 +47,17 @@ internal class ChatViewModel(
             override fun onSuccess(contato: String) {
                 _contato.postValue(contato)
             }
+
         })
 
+    }
+
+    fun addContact(idEmail: String, contact: String){
+        chatRealTimeDatabase.createContact(idEmail, contact, object : ListenerContato {
+            override fun onSuccess(contato: String) {
+                _addContato.postValue("")
+            }
+        })
     }
 
 

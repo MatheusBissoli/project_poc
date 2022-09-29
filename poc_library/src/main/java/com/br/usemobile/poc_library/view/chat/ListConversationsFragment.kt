@@ -44,12 +44,26 @@ internal class ListConversationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setUpObservers()
-        viewModel.getContato(args.uid)
+        setUpListeners()
+        viewModel.getContato(args.uidEmail)
     }
 
     private fun setUpObservers() {
         viewModel.contato.observe(viewLifecycleOwner) { contato ->
             setUpAdapter(contato)
+        }
+        viewModel.addContato.observe(viewLifecycleOwner){
+            viewModel.getContato(args.uidEmail)
+        }
+    }
+
+    private fun setUpListeners(){
+        binding.floatingActionButtonAddContact.setOnClickListener {
+           val bottomsheet = BottomSheetAddContact.newInstance()
+               bottomsheet.setOnClick {
+               viewModel.addContact(args.uidEmail, it)
+           }
+            bottomsheet.show(requireActivity().supportFragmentManager, "")
         }
     }
 
@@ -70,7 +84,11 @@ internal class ListConversationsFragment : Fragment() {
         listConversationAdapter.setOnClick {
             findNavController().navigate(ListConversationsFragmentDirections.actionListConversationsFragmentToChatFragment(
                 it,
-                args.uid
+                args.uidEmail.replace(".", "")
+                    .replace("#", "")
+                    .replace("$", "")
+                    .replace("[", "")
+                    .replace("]", "")
             ))
         }
     }

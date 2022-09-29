@@ -46,7 +46,7 @@ internal class ChatFragment : Fragment() {
         setUpLayout()
         setUpListeners()
         setUpObservers()
-        viewModel.listenerChat(args.id)
+        viewModel.listenerChat(args.id, args.contato)
 
     }
 
